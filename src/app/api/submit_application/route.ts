@@ -12,9 +12,7 @@ export async function POST(request: Request) {
     const email = formData.get('email') as string;
     const phone = formData.get('phone') as string;
     const location = formData.get('location') as string;
-    const coverLetter = formData.get('coverLetter') as string;
     const jobId = `${job_Id}`;
-    const userId = `${candidateId}`;
     const resume = formData.get('resume') as File;
 
     const currentCompany = formData.get('currentCompany') as string;
@@ -52,7 +50,7 @@ export async function POST(request: Request) {
 
     if (resume) {
       const resumeBuffer = Buffer.from(await resume.arrayBuffer());
-      const candiateAttachment = await fetch(`https://harvest.greenhouse.io/v1/applications/${newApplicationid}/attachments`, {
+      await fetch(`https://harvest.greenhouse.io/v1/applications/${newApplicationid}/attachments`, {
         method: 'POST',
         headers: {
           'Authorization': `Basic ${Buffer.from(`${GREENHOUSE_API_KEY}:`).toString("base64")}`,

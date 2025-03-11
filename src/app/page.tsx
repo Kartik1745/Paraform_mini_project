@@ -1,6 +1,6 @@
 'use client';
 
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Briefcase, Send, Upload } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Notyf } from 'notyf';
@@ -43,7 +43,6 @@ export default function Home() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,13 +54,7 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.resume) {
-      setSubmitStatus('error');
-      return;
-    }
-
     setIsSubmitting(true);
-    setSubmitStatus('idle');
 
     try {
       const formDataToSend = new FormData();
@@ -83,7 +76,6 @@ export default function Home() {
         notyf?.success('Application submitted successfully! We\'ll be in touch soon.');
       }
       
-      setSubmitStatus('success');
       setFormData({
         firstName: '',
         lastName: '',
@@ -99,7 +91,6 @@ export default function Home() {
       });
     } catch (error) {
       console.error('Error submitting application:', error);
-      setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
     }
@@ -119,10 +110,10 @@ export default function Home() {
           <div className="prose text-gray-900 max-w-none">
             <h2 className="text-2xl font-semibold mb-6">About this role</h2>
             <p className="mb-6">
-              Recruiting is the highest-leverage action any company can take. Hundreds of billions are spent on staffing and recruiting per year because of how difficult yet critical it is. Hiring the best candidate for any role should take days, not months, and we believe we're best positioned to solve this at scale with our AI-enabled recruiting marketplace.
+              Recruiting is the highest-leverage action any company can take. Hundreds of billions are spent on staffing and recruiting per year because of how difficult yet critical it is. Hiring the best candidate for any role should take days, not months, and we believe we&apos;re best positioned to solve this at scale with our AI-enabled recruiting marketplace.
             </p>
             <p className="mb-8">
-              Our customers come to us with a hunch—that the only way to build an engineering team of 8 with secret clearance in D.C. or find an AI safety engineer in London is to outsource their recruiting efforts. You'll be responsible for turning that hunch into reality by shipping with extreme urgency and having full ownership to craft a magical experience. We're fortunate to be both growing extremely fast and profitable. We've 10x-ed our revenue in the past year to seven figures in ARR with a small, close-knit team and have a clear plan to 10x again in 2025.
+              Our customers come to us with a hunch—that the only way to build an engineering team of 8 with secret clearance in D.C. or find an AI safety engineer in London is to outsource their recruiting efforts. You&apos;ll be responsible for turning that hunch into reality by shipping with extreme urgency and having full ownership to craft a magical experience. We&apos;re fortunate to be both growing extremely fast and profitable. We&apos;ve 10x-ed our revenue in the past year to seven figures in ARR with a small, close-knit team and have a clear plan to 10x again in 2025.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -131,33 +122,33 @@ export default function Home() {
                 <ul className="list-disc pl-5 space-y-2">
                   <li>You want to own and shape how AI transforms recruiting.</li>
                   <li>You thrive in fast-paced, high-ownership environments.</li>
-                  <li>You're excited to build with proprietary data and AI.</li>
+                  <li>You&apos;re excited to build with proprietary data and AI.</li>
                   <li>You want to help scale a company with a strong PMF while continuously innovating.</li>
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-4">Why You Shouldn't Join</h3>
+                <h3 className="text-xl font-semibold mb-4">Why You Shouldn&apos;t Join</h3>
                 <ul className="list-disc pl-5 space-y-2">
                   <li>You prefer clear structure over fast-paced execution.</li>
                   <li>You want a 9-to-5 job with a predictable routine.</li>
                   <li>You need constant direction instead of owning problems.</li>
-                  <li>You aren't passionate about fixing recruiting at scale.</li>
+                  <li>You aren&apos;t passionate about fixing recruiting at scale.</li>
                   <li>You want a low-pressure role instead of rapid growth.</li>
                 </ul>
               </div>
             </div>
 
-            <h3 className="text-xl font-semibold mb-4">What You'll Work On</h3>
+            <h3 className="text-xl font-semibold mb-4">What You&apos;ll Work On</h3>
             <p className="mb-4">
-              You'll work on high-impact, data-driven projects that optimize recruiter efficiency, improve hiring outcomes, and scale our platform across industries. Key challenges you'll tackle include:
+              You&apos;ll work on high-impact, data-driven projects that optimize recruiter efficiency, improve hiring outcomes, and scale our platform across industries. Key challenges you&apos;ll tackle include:
             </p>
             <ul className="space-y-4 mb-8">
               <li>
                 <strong>Intelligent Matching →</strong> Build systems to precisely match recruiters to roles and candidates to jobs, optimizing placements with real-time data and AI.
               </li>
               <li>
-                <strong>Growth Engineering →</strong> Solve how we acquire every vertical—expanding Paraform's reach and impact while maintaining efficiency at scale.
+                <strong>Growth Engineering →</strong> Solve how we acquire every vertical—expanding Paraform&apos;s reach and impact while maintaining efficiency at scale.
               </li>
               <li>
                 <strong>Leveraging Unique Data →</strong> Harness our proprietary recruiting data to continuously improve matching algorithms, recruiter efficiency, and company hiring processes.
@@ -170,7 +161,7 @@ export default function Home() {
               </li>
             </ul>
             <p className="mb-8">
-              You'll have end-to-end ownership, the ability to ship fast, and the chance to work with one of the most valuable data sets in recruiting to solve hiring at scale.
+              You&apos;ll have end-to-end ownership, the ability to ship fast, and the chance to work with one of the most valuable data sets in recruiting to solve hiring at scale.
             </p>
 
             <h3 className="text-xl font-semibold mb-4">What We Look For</h3>
