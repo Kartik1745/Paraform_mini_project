@@ -7,9 +7,6 @@ const job_Id = '4285367007';
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
-
-    // console.log('formData', formData);
-
     const firstName = formData.get('firstName') as string;
     const lastName = formData.get('lastName') as string;
     const email = formData.get('email') as string;
@@ -50,7 +47,6 @@ export async function POST(request: Request) {
       }); 
 
     const candidate = await candidateResponse.json();
-    console.log('candidate', candidate);
     const newApplicationid = candidate.applications[0].id;
 
 
